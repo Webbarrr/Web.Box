@@ -8,7 +8,13 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml" />
+                <!--leave this blank for themes to work-->
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="Themes/MenuButtonTheme.xaml" />
+                        <ResourceDictionary Source="Themes/ToggleButtonTheme.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
 
             <!--this is where you register your view / view model mappings--> 

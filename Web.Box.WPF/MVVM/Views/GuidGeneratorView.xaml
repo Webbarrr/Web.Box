@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:Web.Box.WPF.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    
+    <Grid Background="{DynamicResource Backdrop}">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -17,17 +18,17 @@
                     Margin="5"
                     Height="50">
             <TextBlock Text="How many GUIDs do you want?"
-                       Foreground="White"/>
-            <TextBox Foreground="White"
-                     Background="#303030"
-                     BorderBrush="White"
+                       Foreground="{DynamicResource Text}"/>
+            <TextBox Foreground="{DynamicResource Text}"
+                     Background="{DynamicResource Card}"
+                     BorderBrush="{DynamicResource Border}"
                      Width="150"
                      Margin="10, 0, 0,10"
                      Text="{Binding GuidQty, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         </StackPanel>
 
         <GroupBox Header="Formatting"
-                Foreground="White"
+                Foreground="{DynamicResource Text}"
                   Grid.Row="1"
                   Margin="0, 0, 0, 10">
 
@@ -40,11 +41,11 @@
 
                 <StackPanel Orientation="Horizontal">
                     <RadioButton Content="Upper case" 
-                                 Foreground="White" 
+                                 Foreground="{DynamicResource Text}" 
                                  GroupName="BasicFormatting" 
                                  IsChecked="{Binding IsUpper, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <RadioButton Content="Lower case" 
-                                 Foreground="White" 
+                                 Foreground="{DynamicResource Text}" 
                                  GroupName="BasicFormatting" 
                                  Margin="10, 0"
                                  IsChecked="{Binding IsLower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -53,16 +54,16 @@
                 <StackPanel Orientation="Horizontal"
                             Grid.Row="1">
                     <RadioButton Content="Public" 
-                                 Foreground="White" 
+                                 Foreground="{DynamicResource Text}" 
                                  GroupName="OptionalFormatting"
                                  IsChecked="{Binding Public, UpdateSourceTrigger=PropertyChanged}"/>
                     <RadioButton Content="Private" 
-                                 Foreground="White" 
+                                 Foreground="{DynamicResource Text}" 
                                  GroupName="OptionalFormatting" 
                                  Margin="10, 0"
                                  IsChecked="{Binding Private, UpdateSourceTrigger=PropertyChanged}"/>
                     <RadioButton Content="Private Readonly" 
-                                 Foreground="White" 
+                                 Foreground="{DynamicResource Text}" 
                                  GroupName="OptionalFormatting" 
                                  Margin="10, 0"
                                  IsChecked="{Binding PrivateReadonly, UpdateSourceTrigger=PropertyChanged}"/>
@@ -70,20 +71,20 @@
 
                 <Button Grid.Row="2"
                         Content="Generate"
-                        Foreground="White"
-                        Background="#2B2A33"
+                        Foreground="{DynamicResource Text}"
+                        Background="{DynamicResource Card}"
                         Command="{Binding GenerateGuidCommand}"/>
             </Grid>
         </GroupBox>
 
         <GroupBox Header="Results"
-                  Foreground="White"
+                  Foreground="{DynamicResource Text}"
                   Grid.Row="2"
                   Margin="0, 0, 0, 10">
             
-            <TextBox Foreground="White"
-                     Background="#202020"
-                     BorderBrush="White" 
+            <TextBox Foreground="{DynamicResource Text}"
+                     Background="{DynamicResource Card}"
+                     BorderBrush="{DynamicResource Border}" 
                      Margin="5"
                      ScrollViewer.CanContentScroll="True"
                      Text="{Binding Guids, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

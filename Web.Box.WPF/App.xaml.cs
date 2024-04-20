@@ -36,6 +36,7 @@ namespace Web.Box.WPF
             // service registration
             services.AddTransient<IGuidGeneratorService, GuidGeneratorService>();
             services.AddTransient<IGuidFormatterService, GuidFormatterService>();
+            services.AddSingleton<IThemePickerService, ThemePickerService>();
 
             _serviceProvider = services.BuildServiceProvider();
         }

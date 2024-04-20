@@ -5,21 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Web.Box.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        Background="#303030">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid Background="{DynamicResource Backdrop}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.RowSpan="2">
             <RadioButton Content="Guids"
                          Height="50"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
-                         Command="{Binding NavGuidCommand}" />
+                         Command="{Binding NavGuidCommand}"/>
 
             <RadioButton Content="Settings"
                          Height="50"
@@ -33,5 +38,18 @@
                         Margin="10"
                         ScrollViewer.CanContentScroll="True"
                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+            
+            <Label Content="Dark Mode"
+                   Foreground="{DynamicResource Text}" />
+            <ToggleButton Margin="15, 0" 
+                          IsChecked="{Binding UseLightMode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Label Content="Light Mode"
+                   Foreground="{DynamicResource Text}" />
+            
+        </StackPanel>
     </Grid>
 </Window>
