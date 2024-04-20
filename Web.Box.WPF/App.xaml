@@ -1,0 +1,29 @@
+﻿<Application x:Class="Web.Box.WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Web.Box.WPF"
+             xmlns:views="clr-namespace:Web.Box.WPF.MVVM.Views"
+             xmlns:viewModels="clr-namespace:Web.Box.WPF.MVVM.ViewModels">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--this is where you register your view / view model mappings--> 
+            <DataTemplate DataType="{x:Type TypeName=viewModels:HomeViewModel}">
+                <views:HomeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=viewModels:SettingsViewModel}">
+                <views:SettingsView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type TypeName=viewModels:GuidGeneratorViewModel}">
+                <views:GuidGeneratorView />
+            </DataTemplate>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

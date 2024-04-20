@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Web.Box.WPF.MVVM.Views.GuidGeneratorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Web.Box.WPF.MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    Margin="5"
+                    Height="50">
+            <TextBlock Text="How many GUIDs do you want?"
+                       Foreground="White"/>
+            <TextBox Foreground="White"
+                     Background="#303030"
+                     BorderBrush="White"
+                     Width="150"
+                     Margin="10, 0, 0,10"
+                     Text="{Binding GuidQty, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        </StackPanel>
+
+        <GroupBox Header="Formatting"
+                Foreground="White"
+                  Grid.Row="1"
+                  Margin="0, 0, 0, 10">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="Upper case" 
+                                 Foreground="White" 
+                                 GroupName="BasicFormatting" 
+                                 IsChecked="{Binding IsUpper, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <RadioButton Content="Lower case" 
+                                 Foreground="White" 
+                                 GroupName="BasicFormatting" 
+                                 Margin="10, 0"
+                                 IsChecked="{Binding IsLower, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="1">
+                    <RadioButton Content="Public" 
+                                 Foreground="White" 
+                                 GroupName="OptionalFormatting"
+                                 IsChecked="{Binding Public, UpdateSourceTrigger=PropertyChanged}"/>
+                    <RadioButton Content="Private" 
+                                 Foreground="White" 
+                                 GroupName="OptionalFormatting" 
+                                 Margin="10, 0"
+                                 IsChecked="{Binding Private, UpdateSourceTrigger=PropertyChanged}"/>
+                    <RadioButton Content="Private Readonly" 
+                                 Foreground="White" 
+                                 GroupName="OptionalFormatting" 
+                                 Margin="10, 0"
+                                 IsChecked="{Binding PrivateReadonly, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+
+                <Button Grid.Row="2"
+                        Content="Generate"
+                        Foreground="White"
+                        Background="#2B2A33"
+                        Command="{Binding GenerateGuidCommand}"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Results"
+                  Foreground="White"
+                  Grid.Row="2"
+                  Margin="0, 0, 0, 10">
+            
+            <TextBox Foreground="White"
+                     Background="#202020"
+                     BorderBrush="White" 
+                     Margin="5"
+                     ScrollViewer.CanContentScroll="True"
+                     Text="{Binding Guids, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </GroupBox>
+    </Grid>
+</UserControl>
